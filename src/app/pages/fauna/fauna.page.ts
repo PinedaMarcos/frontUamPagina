@@ -12,7 +12,7 @@ export class FaunaPage implements OnInit {
   textBuscar: string;
   datos: Dato[] = [];
   datosFiltrados: Dato[] = [];
-  backendURL: string = 'backend-production-66c4.up.railway.app';
+  backendURL: string = 'https://backend-production-66c4.up.railway.app';
   //loading: boolean = false;
 
   constructor(private http: HttpClient) { }

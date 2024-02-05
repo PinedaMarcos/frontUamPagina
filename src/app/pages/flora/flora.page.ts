@@ -10,7 +10,7 @@ export class FloraPage implements OnInit {
   textBuscar: string;
   datos: Dato[] = [];
   datosFiltrados: Dato[] = [];
-  backendURL: string = 'http://localhost:3902';
+  backendURL: string = 'https://backend-production-66c4.up.railway.app';
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
