@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import{Storage, ref, uploadBytes} from '@angular/fire/storage';
+import { response } from 'express';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-ion-modal-agregar-fotos',
@@ -12,7 +15,7 @@ export class IonModalAgregarFotosPage implements OnInit {
   public agregar: FormGroup;
   public selectedFile: File;
 
-  constructor(private FormBuilder: FormBuilder, private http: HttpClient) {
+  constructor(private FormBuilder: FormBuilder, private http: HttpClient, private storage: Storage) {
 
   }
 
@@ -45,7 +48,7 @@ export class IonModalAgregarFotosPage implements OnInit {
       const campoRequeridoValue = (this.agregar.value.campoRequerido === 'Flora') ? 1 : 0;
       formData.append('campoRequerido', campoRequeridoValue.toString());
 
-      const backendURL = 'https://backend-production-66c4.up.railway.app/api/crearDato';
+      const backendURL = 'https://backuampagina-production.up.railway.app/api/crearDato';
 
       this.http.post(backendURL, formData)
         .subscribe((response) => {
@@ -57,5 +60,11 @@ export class IonModalAgregarFotosPage implements OnInit {
     } else {
       console.error('No se ha seleccionado ningún archivo.');
     }
+  }
+  subirImagen($event: any){
+    const imagen = $event.target.files[0];
+    const link = ref(this.storage, 'image/${imagen.name}');
+    uploadBytes(link, imagen).then(response=>console.log(response)).catch(error=>console.log(error));
+
   }
 }

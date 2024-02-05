@@ -12,7 +12,7 @@ export class FaunaPage implements OnInit {
   textBuscar: string;
   datos: Dato[] = [];
   datosFiltrados: Dato[] = [];
-  backendURL: string = 'https://backend-production-66c4.up.railway.app';
+  backendURL: string = 'https://backuampagina-production.up.railway.app';
   //loading: boolean = false;
 
   constructor(private http: HttpClient) { }
@@ -50,7 +50,7 @@ export class FaunaPage implements OnInit {
     }
   }
   getImagePath(imageName: string): string {
-    return `https://raw.githubusercontent.com/PinedaMarcos/paginaWebUamOficial/main/backend/imagenes/fauna/${imageName}`;
+    return `https://github.com/PinedaMarcos/BackUamPagina/blob/main/imagenes/fauna/${imageName}`;
   }
 
   eliminar(id: number) {

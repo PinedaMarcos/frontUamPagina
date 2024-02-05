@@ -16,7 +16,7 @@
         </ion-item>
       </ion-list>
     <ion-label class="label"> Seleccione su imagen</ion-label>
-      <input type="file" (change)="onFileSelected($event)" id="Imagen" formControlName="Imagen"/>
+      <input type="file" (change)="subirImagen($event)" id="Imagen" formControlName="Imagen" />
       <ion-button type="submit" [disabled]= "agregar.invalid"> Enviar</ion-button>
 </form>
 </div>

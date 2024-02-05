@@ -10,7 +10,7 @@ export class FloraPage implements OnInit {
   textBuscar: string;
   datos: Dato[] = [];
   datosFiltrados: Dato[] = [];
-  backendURL: string = 'https://backend-production-66c4.up.railway.app';
+  backendURL: string = 'https://backuampagina-production.up.railway.app';
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -44,7 +44,7 @@ export class FloraPage implements OnInit {
     }
   }
   getImagePath(imageName: string): string {
-    return `${this.backendURL}/imagenes/flora/${imageName}`;
+    return `https://github.com/PinedaMarcos/BackUamPagina/blob/main/imagenes/flora/${imageName}`;
   }
 
   eliminar(id: number) {

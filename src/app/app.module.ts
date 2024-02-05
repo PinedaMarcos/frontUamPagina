@@ -9,6 +9,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Storage, provideStorage } from '@angular/fire/storage';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from 'src/environments/environment';
+import { getStorage } from "firebase/storage";
 
 
 @NgModule({
@@ -20,7 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
      OAuthModule.forRoot(),
      HttpClientModule,
      FormsModule,
-     ReactiveFormsModule
+     ReactiveFormsModule,
+     provideStorage(()=>getStorage())
     ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
