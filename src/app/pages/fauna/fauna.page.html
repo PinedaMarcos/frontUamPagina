@@ -29,7 +29,7 @@
     </div>
     <div *ngFor="let dato of datosFiltrados" class="galeria">
         <div class="foto">
-            <img [src]="getImagePath(dato.imagen)" alt="">
+          <img [src]="dato.imagen" alt="">
         </div>
         <div class="pie">
             <p><i>{{ dato.nombreCientifico }}</i></p>
