@@ -48,8 +48,9 @@ export class IonModalAgregarFotosPage implements OnInit {
         this.imagenesService.uploadImage(this.selectedFile).subscribe(
           (imgbbResponse) => {
             const imageUrl = imgbbResponse.data.display_url;
-            formData.append('imgbbUrl', imageUrl);
-            const backendURL = 'http://localhost:3902/api/crearDato';
+            formData.append('imagen', imageUrl);
+            console.log(imageUrl)
+            const backendURL = 'https://backuampagina-production.up.railway.app/api/crearDato';
             this.http.post(backendURL, formData)
               .subscribe((response) => {
                 console.log('Datos guardados con éxito', response);
